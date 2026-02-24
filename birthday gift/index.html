@@ -22,7 +22,7 @@
             align-items: center;
             overflow: hidden;
             
-            /* 🐱💐🌸 YOUR WORKING CAT & FLOWER BACKGROUND 🌸💐🐱 */
+            /* 🐱💐🌸 THE WORKING BACKGROUND (Untouched) 🌸💐🐱 */
             background-color: #ffe6eb;
             background-image: url("data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='15' y='45' font-size='28' opacity='0.5'%3E🐱%3C/text%3E%3Ctext x='85' y='85' font-size='32' opacity='0.5'%3E💐%3C/text%3E%3Ctext x='115' y='35' font-size='28' opacity='0.5'%3E🌸%3C/text%3E%3Ctext x='35' y='125' font-size='28' opacity='0.5'%3E🌸%3C/text%3E%3C/svg%3E");
             background-repeat: repeat;
@@ -157,6 +157,7 @@
         button.btn-no:hover {
             background: #8f8f8f;
         }
+
     </style>
 </head>
 <body>
@@ -165,7 +166,7 @@
         
         <div id="screen-1" class="screen active">
             <h1 id="text-ask-title"></h1>
-            <img id="img-main" src="" alt="Main Image" referrerpolicy="no-referrer">
+            <img id="img-main" src="" alt="Main Image">
             <div class="btn-group">
                 <button onclick="goToScreen('screen-yes')">YES</button>
                 <button class="btn-no" onclick="goToScreen('screen-no')">NO</button>
@@ -174,7 +175,7 @@
 
         <div id="screen-no" class="screen">
             <h1 id="text-angry-title"></h1>
-            <img id="img-angry" src="" alt="Angry Image" referrerpolicy="no-referrer">
+            <img id="img-angry" src="" alt="Angry Image">
             <div class="btn-group">
                 <button onclick="goToScreen('screen-1')">TRY AGAIN</button>
             </div>
@@ -183,7 +184,7 @@
         <div id="screen-yes" class="screen">
             <h1 id="text-package-title"></h1>
             <div class="gift-box" onclick="goToScreen('screen-letter')">
-                <img id="img-package" src="" alt="Package" referrerpolicy="no-referrer">
+                <img id="img-package" src="" alt="Package">
                 <p>Click to open 🎀</p>
             </div>
         </div>
@@ -199,16 +200,16 @@
             <h1 id="text-choose-title"></h1>
             <div class="gift-row">
                 <div class="gift-box" onclick="goToScreen('screen-photo1')">
-                    <img id="img-gift1" src="" alt="Gift 1" referrerpolicy="no-referrer">
+                    <img id="img-gift1" src="" alt="Gift 1">
                 </div>
                 <div class="gift-box" onclick="goToScreen('screen-photo2')">
-                    <img id="img-gift2" src="" alt="Gift 2" referrerpolicy="no-referrer">
+                    <img id="img-gift2" src="" alt="Gift 2">
                 </div>
             </div>
         </div>
 
         <div id="screen-photo1" class="screen">
-            <img id="img-photo1" src="" alt="Photo 1" referrerpolicy="no-referrer">
+            <img id="img-photo1" src="" alt="Photo 1">
             <p id="text-photo1"></p>
             <div class="btn-group">
                 <button onclick="goToScreen('screen-final')">Continue</button>
@@ -216,7 +217,7 @@
         </div>
 
         <div id="screen-photo2" class="screen">
-            <img id="img-photo2" src="" alt="Photo 2" referrerpolicy="no-referrer">
+            <img id="img-photo2" src="" alt="Photo 2">
             <p id="text-photo2"></p>
             <div class="btn-group">
                 <button onclick="goToScreen('screen-final')">Continue</button>
@@ -225,7 +226,7 @@
 
         <div id="screen-final" class="screen">
             <h1 id="text-final-title"></h1>
-            <img id="img-final" src="" alt="Final Hug" referrerpolicy="no-referrer">
+            <img id="img-final" src="" alt="Final Hug">
         </div>
 
     </div>
@@ -246,21 +247,19 @@
 
             finalTitle: "I WANT TO ANNOY YOU Forever hehehehe 🐻 and happy birthday to you once again ❤️❤️", 
 
-            // --- 🖼️ GIF LINKS ---
-            // If you change these, make sure the links end in .gif, .png, or .jpg!
+            // --- 🖼️ PROXY LINKS TO BYPASS VERCEL BLOCK ---
+            // Notice the "api.allorigins.win" - this is the disguise!
             
-            imgMain: "https://media.tenor.com/bCbp9zXthTEAAAAi/peach-cat-flowers.gif", 
-            imgAngry: "https://media.tenor.com/qVszEik_o-gAAAAi/cat-with-gun-cat.gif", 
+            imgMain: "https://api.allorigins.win/raw?url=https://media.tenor.com/bCbp9zXthTEAAAAi/peach-cat-flowers.gif", 
+            imgAngry: "https://api.allorigins.win/raw?url=https://media.tenor.com/qVszEik_o-gAAAAi/cat-with-gun-cat.gif", 
             
             imgPackage: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png", 
             imgGift1: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png", 
             imgGift2: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png",
 
             imgPhoto1: "https://images.unsplash.com/photo-1561181286-d3fee7d55ef6?q=80&w=400&auto=format&fit=crop", 
-            imgPhoto2: "https://media.tenor.com/81BebI2vFxcAAAAi/peach-cat-love.gif", 
-            
-            // TWO CUTE CATS HUGGING GIF
-            imgFinal: "https://media.tenor.com/W29bQJ1BfFwAAAAi/peach-and-goma-peach-cat.gif" 
+            imgPhoto2: "https://api.allorigins.win/raw?url=https://media.tenor.com/81BebI2vFxcAAAAi/peach-cat-love.gif", 
+            imgFinal: "https://api.allorigins.win/raw?url=https://media.tenor.com/W29bQJ1BfFwAAAAi/peach-and-goma-peach-cat.gif" 
         };
 
         // --- 🛑 NO EDITING NEEDED BELOW THIS LINE ---
