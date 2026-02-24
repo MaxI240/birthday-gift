@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Gift For You 🎀</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffe6eb;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --primary-pink: #ff8fa3;
+            --text-dark: #4a4a4a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#ffb3c6 1px, transparent 1px);
+            background-size: 20px 20px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            background: #ffc4d0;
+            border-radius: 15px 0 15px 0;
+            pointer-events: none;
+            z-index: 1;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255, 143, 163, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .screen {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .handwritten {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: #d1495b;
+            padding: 20px;
+            background: #fff9e6;
+            border: 1px solid #e0d8c3;
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+            white-space: pre-line;
+        }
+
+        img {
+            max-width: 200px;
+            border-radius: 15px;
+            margin: 15px 0;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gift-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .gift-box {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .gift-box:hover {
+            transform: scale(1.1);
+        }
+        .gift-box img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-family: 'Fredoka One', cursive;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 143, 163, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            background: #ff748c;
+            box-shadow: 0 6px 20px rgba(255, 143, 163, 0.6);
+        }
+
+        button.btn-no {
+            background: #a8a8a8;
+            box-shadow: 0 4px 15px rgba(168, 168, 168, 0.4);
+        }
+        button.btn-no:hover {
+            background: #8f8f8f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div id="screen-1" class="screen active">
+            <h1 id="text-ask-title"></h1>
+            <img id="img-main" src="" alt="Main Image">
+            <div class="btn-group">
+                <button onclick="goToScreen('screen-yes')">YES</button>
+                <button class="btn-no" onclick="goToScreen('screen-no')">NO</button>
+            </div>
+        </div>
+
+        <div id="screen-no" class="screen">
+            <h1 id="text-angry-title"></h1>
+            <img id="img-angry" src="" alt="Angry Image">
+            <div class="btn-group">
+                <button onclick="goToScreen('screen-1')">TRY AGAIN</button>
+            </div>
+        </div>
+
+        <div id="screen-yes" class="screen">
+            <h1 id="text-package-title"></h1>
+            <div class="gift-box" onclick="goToScreen('screen-letter')">
+                <img id="img-package" src="" alt="Package">
+                <p>Click to open 🎀</p>
+            </div>
+        </div>
+
+        <div id="screen-letter" class="screen">
+            <div class="handwritten" id="text-letter"></div>
+            <div class="btn-group">
+                <button onclick="goToScreen('screen-choose-gift')">Next</button>
+            </div>
+        </div>
+
+        <div id="screen-choose-gift" class="screen">
+            <h1 id="text-choose-title"></h1>
+            <div class="gift-row">
+                <div class="gift-box" onclick="goToScreen('screen-photo1')">
+                    <img id="img-gift1" src="" alt="Gift 1">
+                </div>
+                <div class="gift-box" onclick="goToScreen('screen-photo2')">
+                    <img id="img-gift2" src="" alt="Gift 2">
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-photo1" class="screen">
+            <img id="img-photo1" src="" alt="Photo 1">
+            <p id="text-photo1"></p>
+            <div class="btn-group">
+                <button onclick="goToScreen('screen-final')">Continue</button>
+            </div>
+        </div>
+
+        <div id="screen-photo2" class="screen">
+            <img id="img-photo2" src="" alt="Photo 2">
+            <p id="text-photo2"></p>
+            <div class="btn-group">
+                <button onclick="goToScreen('screen-final')">Continue</button>
+            </div>
+        </div>
+
+        <div id="screen-final" class="screen">
+            <h1 id="text-final-title"></h1>
+            <img id="img-final" src="" alt="Final Hug">
+        </div>
+
+    </div>
+
+    <script>
+        const CONTENT = {
+            askTitle: "PLS ACCEPT THE GIFT 💐", 
+            angryTitle: "HOW DARE YOU! 🔫", 
+            packageTitle: "You've got a package! 🎁", 
+            letterText: "Happy Birthday beautiful! \n\nI know we don't always say it out loud, but I notice everything you do and I care about you so much. Even when life gets busy, the moments we spend talking truly mean the world to me. \n\nYou are a simple, humble, and kind-hearted soul. Keep blooming like the beautiful flower you are. 🌸",
+            chooseTitle: "GIFT FOR YOU! \nPick a box 🎁", 
+            photo1Text: "Pretty isn't just how you look—it's how you treat people. And you treat everyone so beautifully. Best wishes today and always. 💖", 
+            photo2Text: "Some bonds never fade. I'll always be here to support you, listen to the gossip, and make you smile. 🌷", 
+            finalTitle: "I WANT TO ANNOY YOU FOR THE REST OF MY LIFE 🐻", 
+
+            imgMain: "https://media.giphy.com/media/JkpxGvHuo101q/giphy.gif", 
+            imgAngry: "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif", 
+            imgPackage: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png", 
+            imgGift1: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png", 
+            imgGift2: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png",
+            imgPhoto1: "https://images.unsplash.com/photo-1561181286-d3fee7d55ef6?q=80&w=400&auto=format&fit=crop", 
+            imgPhoto2: "https://media.giphy.com/media/jpbnoe3UIa8TU8LM13/giphy.gif", 
+            imgFinal: "https://media.giphy.com/media/VbAmVUctKAqpcqbcvv/giphy.gif" 
+        };
+
+        document.getElementById('text-ask-title').innerText = CONTENT.askTitle;
+        document.getElementById('text-angry-title').innerText = CONTENT.angryTitle;
+        document.getElementById('text-package-title').innerText = CONTENT.packageTitle;
+        document.getElementById('text-letter').innerText = CONTENT.letterText;
+        document.getElementById('text-choose-title').innerText = CONTENT.chooseTitle;
+        document.getElementById('text-photo1').innerText = CONTENT.photo1Text;
+        document.getElementById('text-photo2').innerText = CONTENT.photo2Text;
+        document.getElementById('text-final-title').innerText = CONTENT.finalTitle;
+
+        document.getElementById('img-main').src = CONTENT.imgMain;
+        document.getElementById('img-angry').src = CONTENT.imgAngry;
+        document.getElementById('img-package').src = CONTENT.imgPackage;
+        document.getElementById('img-gift1').src = CONTENT.imgGift1;
+        document.getElementById('img-gift2').src = CONTENT.imgGift2;
+        document.getElementById('img-photo1').src = CONTENT.imgPhoto1;
+        document.getElementById('img-photo2').src = CONTENT.imgPhoto2;
+        document.getElementById('img-final').src = CONTENT.imgFinal;
+
+        function goToScreen(screenId) {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            const size = Math.random() * 10 + 10; 
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
+            petal.style.left = `${Math.random() * 100}vw`;
+            const duration = Math.random() * 3 + 4; 
+            petal.style.animationDuration = `${duration}s`;
+            document.body.appendChild(petal);
+            setTimeout(() => {
+                petal.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createPetal, 400);
+    </script>
+</body>
+</html>
