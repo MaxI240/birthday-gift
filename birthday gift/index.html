@@ -6,6 +6,7 @@
     <title>A Special Gift For You 🎀</title>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* 🎨 COLORS */
         :root {
             var(--card-bg): rgba(255, 255, 255, 0.9);
             --primary-pink: #ff8fa3;
@@ -22,12 +23,13 @@
             align-items: center;
             overflow: hidden;
             
-            /* 🐱💐🌸 THE WORKING BACKGROUND 🌸💐🐱 */
+            /* 🐱💐🌸 YOUR CAT & FLOWER BACKGROUND (UNTOUCHED) 🌸💐🐱 */
             background-color: #ffe6eb;
             background-image: url("data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='15' y='45' font-size='28' opacity='0.5'%3E🐱%3C/text%3E%3Ctext x='85' y='85' font-size='32' opacity='0.5'%3E💐%3C/text%3E%3Ctext x='115' y='35' font-size='28' opacity='0.5'%3E🌸%3C/text%3E%3Ctext x='35' y='125' font-size='28' opacity='0.5'%3E🌸%3C/text%3E%3C/svg%3E");
             background-repeat: repeat;
         }
 
+        /* 🌸 Falling Petals Animation */
         .petal {
             position: absolute;
             background: #ffc4d0;
@@ -44,6 +46,7 @@
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
 
+        /* 📱 The White Glass Box */
         .container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -84,6 +87,7 @@
             line-height: 1.6;
         }
 
+        /* 📜 OLD LETTER DESIGN */
         .handwritten {
             font-family: 'Caveat', cursive;
             font-size: 1.8rem;
@@ -232,44 +236,47 @@
     </div>
 
     <script>
+        // =========================================================================
+        // 🌸 SETTINGS: NOW USING YOUR UPLOADED FILES! 🌸
+        // =========================================================================
+        
         const CONTENT = {
+            // --- 📝 TEXT CONTENT ---
             askTitle: "PLS ACCEPT THE GIFT 💐", 
             angryTitle: "HOW DARE YOU! 🔫", 
             packageTitle: "You've got a package! 🎁", 
-            
             letterText: "Happy Birthday beautiful and pretty gunu! \n\nI know I dont much for you but I notice everything you do and I care about you so much. Even when life gets busy, the moments we spend talking truly mean the world to me. \n\nYou are a such a cutie and kind-hearted soul , only person I dont get tired talking also Keep blooming like the beautiful flower you are. 🌸",
-            
             chooseTitle: "GIFT FOR YOU! \nPick a box 🎁", 
-
             photo1Text: "Pretty isn't just how you look—it's how you treat people. And you treat everyone so beautifully.Hope mere karan acha feel kre kam hi kr rha jitna tu deserve krti pura de bhi ni paunga but still.. Best wishes today and always. 💖", 
-
             photo2Text: "The bond with you is something i dont ever wanna lose and wanna keep in touch with you forever. I'll always be here to support you for your exam and everything, listen to the gossip, and make you smile whatever I can do. 🌷", 
-
             finalTitle: "I WANT TO ANNOY YOU Forever hehehehe 🐻 and happy birthday to you once again ❤️❤️", 
 
-            // --- 🖼️ PINTEREST & UNSPLASH LINKS (No Vercel Blocks Here!) ---
+            // --- 🖼️ LOCAL GITHUB FILES (These will work!) ---
             
-            // Cat holding flower
-            imgMain: "https://i.pinimg.com/originals/79/3a/0b/793a0b5cdaae25fba0b9a67e4ddbf843.gif", 
+            // Flower cat on front page
+            imgMain: "main.gif", 
             
-            // Cat holding gun
-            imgAngry: "https://i.pinimg.com/originals/18/d9/38/18d938b2cb1e19d3fbc9b7bde7831f29.gif", 
+            // Angry cat gif
+            imgAngry: "angry.gif", 
             
-            imgPackage: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png", 
-            imgGift1: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png", 
-            imgGift2: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png",
+            // Your uploaded box icon
+            imgPackage: "box.png", 
+            imgGift1: "box.png", 
+            imgGift2: "box.png",
 
-            // Pretty pink bouquet
-            imgPhoto1: "https://images.unsplash.com/photo-1561181286-d3fee7d55ef6?q=80&w=400&auto=format&fit=crop", 
+            // First photo reveal (using the JPG you uploaded)
+            imgPhoto1: "photo1.jpg", 
             
-            // Cats cuddling
-            imgPhoto2: "https://i.pinimg.com/originals/87/49/a8/8749a88eb8ee0cb0d7ff77f8ec4cb442.gif", 
+            // Second photo reveal (using the other GIF you uploaded)
+            imgPhoto2: "photo2.gif", 
             
-            // Cats hugging final screen
-            imgFinal: "https://i.pinimg.com/originals/db/5b/4b/db5b4b7454261d7ec017a4c7e66da155.gif" 
+            // Hug gif for final screen
+            imgFinal: "hug.gif" 
         };
 
-        // --- 🛑 NO EDITING NEEDED BELOW THIS LINE ---
+        // =========================================================================
+        // 🛑 STOP! DO NOT EDIT BELOW THIS LINE! 
+        // =========================================================================
 
         document.getElementById('text-ask-title').innerText = CONTENT.askTitle;
         document.getElementById('text-angry-title').innerText = CONTENT.angryTitle;
