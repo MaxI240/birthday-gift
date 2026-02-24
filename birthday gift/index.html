@@ -6,8 +6,10 @@
     <title>A Special Gift For You 🎀</title>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* 🎨 THIS SECTION CONTROLS THE COLORS AND LOOK */
         :root {
-            --bg-color: #ffe6eb;
+            /* A soft pink overlay for the background pattern */
+            --bg-overlay: rgba(255, 230, 235, 0.85);
             --card-bg: rgba(255, 255, 255, 0.85);
             --primary-pink: #ff8fa3;
             --text-dark: #4a4a4a;
@@ -17,16 +19,21 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            background-color: var(--bg-color);
-            background-image: radial-gradient(#ffb3c6 1px, transparent 1px);
-            background-size: 20px 20px;
             font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            /* 🐱🌸 NEW BACKGROUND WITH CATS AND FLOWERS 🌸🐱 */
+            /* This is a seamless pattern image */
+            background-image: 
+                linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+                url('https://i.pinimg.com/originals/e6/6b/37/e66b37da59fb67dfcfbc03c9fe433703.jpg');
+            background-repeat: repeat;
+            background-size: 400px; /* Adjusts how big the pattern is */
         }
 
+        /* 🌸 Falling Petals Animation */
         .petal {
             position: absolute;
             background: #ffc4d0;
@@ -43,6 +50,7 @@
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
 
+        /* 📱 The White Glass Box */
         .container {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -56,6 +64,7 @@
             position: relative;
         }
 
+        /* Logic to hide/show different screens */
         .screen {
             display: none;
             animation: fadeIn 0.5s ease;
@@ -69,6 +78,7 @@
             to { opacity: 1; transform: scale(1); }
         }
 
+        /* Text Styles */
         h1 {
             font-family: 'Fredoka One', cursive;
             color: var(--text-dark);
@@ -83,18 +93,26 @@
             line-height: 1.6;
         }
 
+        /* 📜 NEW OLD LETTER DESIGN 📜 */
         .handwritten {
             font-family: 'Caveat', cursive;
             font-size: 1.8rem;
-            color: #d1495b;
-            padding: 20px;
-            background: #fff9e6;
-            border: 1px solid #e0d8c3;
-            border-radius: 5px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+            /* Faded ink color */
+            color: #5c4b51; 
+            padding: 30px;
+            /* Old paper color and texture */
+            background-color: #f4e1c1;
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+            /* Slightly irregular border to look handmade */
+            border: 2px solid #d4c5b2;
+            border-radius: 2px 15px 5px 20px;
+            /* Shadow to make it look like it's sitting on the glass */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
             white-space: pre-line;
+            line-height: 1.5;
         }
 
+        /* Image Styles */
         img {
             max-width: 200px;
             border-radius: 15px;
@@ -121,6 +139,7 @@
             height: 100px;
         }
 
+        /* Buttons */
         .btn-group {
             display: flex;
             justify-content: center;
@@ -154,9 +173,11 @@
         button.btn-no:hover {
             background: #8f8f8f;
         }
+
     </style>
 </head>
 <body>
+
     <div class="container">
         
         <div id="screen-1" class="screen active">
@@ -227,25 +248,60 @@
     </div>
 
     <script>
+        // =========================================================================
+        // 🌸 🌸 🌸 SETTINGS SECTION: EDIT EVERYTHING HERE! 🌸 🌸 🌸
+        // Change the text inside the quotation marks (" ") to whatever you want.
+        // =========================================================================
+        
         const CONTENT = {
-            askTitle: "PLS ACCEPT THE GIFT 💐", 
-            angryTitle: "HOW DARE YOU! 🔫", 
-            packageTitle: "You've got a package! 🎁", 
-            letterText: "Happy Birthday beautiful! \n\nI know we don't always say it out loud, but I notice everything you do and I care about you so much. Even when life gets busy, the moments we spend talking truly mean the world to me. \n\nYou are a simple, humble, and kind-hearted soul. Keep blooming like the beautiful flower you are. 🌸",
-            chooseTitle: "GIFT FOR YOU! \nPick a box 🎁", 
-            photo1Text: "Pretty isn't just how you look—it's how you treat people. And you treat everyone so beautifully. Best wishes today and always. 💖", 
-            photo2Text: "Some bonds never fade. I'll always be here to support you, listen to the gossip, and make you smile. 🌷", 
-            finalTitle: "I WANT TO ANNOY YOU FOR THE REST OF MY LIFE 🐻", 
+            // --- 📝 TEXT CONTENT ---
 
-            imgMain: "https://media.giphy.com/media/JkpxGvHuo101q/giphy.gif", 
-            imgAngry: "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif", 
+            askTitle: "PLS ACCEPT THE GIFT 💐", // Title of the very first screen
+            angryTitle: "HOW DARE YOU! 🔫", // If they click NO
+            packageTitle: "You've got a package! 🎁", // Above the closed gift box
+            
+            // 💌 THIS IS THE CONTENT OF THE LETTER! 
+            // Type \n to create a new line (paragraph break).
+            letterText: "Happy Birthday beautiful and pretty gunu! \n\nI know I dont much for you but I notice everything you do and I care about you so much. Even when life gets busy, the moments we spend talking truly mean the world to me. \n\nYou are a such a cutie and kind-hearted soul , only person I dont get tired talking also Keep blooming like the beautiful flower you are. 🌸",
+            
+            chooseTitle: "GIFT FOR YOU! \nPick a box 🎁", // Above the two small gift boxes
+
+            photo1Text: "Pretty isn't just how you look—it's how you treat people. And you treat everyone so beautifully.Hope mere karan acha feel kre kam hi kr rha jitna tu deserve krti pura de bhi ni paunga but still.. Best wishes today and always. 💖", // Under FIRST photo reveal
+
+            photo2Text: "The bond with you is something i dont ever wanna lose and wanna keep in touch with you forever. I'll always be here to support you for your exam and everything, listen to the gossip, and make you smile whatever I can do. 🌷", // Under SECOND photo reveal
+
+            finalTitle: "I WANT TO ANNOY YOU Forever hehehehe 🐻 and happy birthday to you once again ❤️❤️", // Text on the final screen
+
+
+            // --- 🖼️ IMAGE CONTENT (PRE-FILLED WITH CATS AND FLOWERS) ---
+            // You can replace these links with your own.
+            
+            // Cute cat with flowers on the first screen
+            imgMain: "https://media.tenor.com/bCbp9zXthTEAAAAi/peach-cat-flowers.gif", 
+
+            // Funny angry cat if they click NO
+            imgAngry: "https://media.tenor.com/qVszEik_o-gAAAAi/cat-with-gun-cat.gif", 
+
+            // The image of the closed package/gift box
             imgPackage: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png", 
+
+            // The two small gift boxes they click on
             imgGift1: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png", 
             imgGift2: "https://cdn-icons-png.flaticon.com/512/3014/3014459.png",
+
+            // 📷 THE FIRST REVEAL PHOTO (A gorgeous pink flower bouquet)
             imgPhoto1: "https://images.unsplash.com/photo-1561181286-d3fee7d55ef6?q=80&w=400&auto=format&fit=crop", 
-            imgPhoto2: "https://media.giphy.com/media/jpbnoe3UIa8TU8LM13/giphy.gif", 
-            imgFinal: "https://media.giphy.com/media/VbAmVUctKAqpcqbcvv/giphy.gif" 
+
+            // 📷 THE SECOND REVEAL PHOTO (Cute cats cuddling)
+            imgPhoto2: "https://media.tenor.com/81BebI2vFxcAAAAi/peach-cat-love.gif", 
+
+            // The final cute cat hug animation
+            imgFinal: "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-hugs.gif" 
         };
+
+        // =========================================================================
+        // 🛑 STOP! DO NOT EDIT BELOW THIS LINE! 
+        // =========================================================================
 
         document.getElementById('text-ask-title').innerText = CONTENT.askTitle;
         document.getElementById('text-angry-title').innerText = CONTENT.angryTitle;
@@ -287,6 +343,7 @@
         }
 
         setInterval(createPetal, 400);
+
     </script>
 </body>
 </html>
